@@ -62,7 +62,7 @@ class PremiumToBillItemConverter(object):
         if pp_params:
             pp_params = pp_params["calculation_rule"] if "calculation_rule" in pp_params else None
         commision_rate = 0
-        if "commision_rate" in pp_params:
+        if pp_params and "commision_rate" in pp_params:
             commision_rate = float(pp_params["commision_rate"])
         bill_line_item["discount"] = 1-(commision_rate/100) if commision_rate != 0 else 0
 
